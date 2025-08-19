@@ -4,31 +4,32 @@ This directory contains the dotfiles for my sytem
 
 ## Requirements
 
-Ensure you have the efollowing installed on your system
+Ensure you have the following installed on your system
 
 ### Git
 
-´´´
+```
 dnf install git
-´´´
+```
 
 ### Stow
 
-´´´
+```
 dnf install stow
-´´´
+```
 
 ## Installation
 
 First, check out the dotfiles repo in your $HOME directory using git
 
-´´´
-$ git clone git@github.com:JDevJ1/dotfiles.git
-$ cd dotfiles
-´´´
+```
+git clone git@github.com:JDevJ1/dotfiles.git
+
+cd dotfiles
+```
 
 then use GNU stow to create symlinks
 
-´´´
-$ stow .
-´´´
+```
+stow .
+```
