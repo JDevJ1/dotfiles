@@ -18,6 +18,14 @@ dnf install git
 dnf install stow
 ```
 
+### Zsh
+
+```
+dnf install zsh
+
+chsh -s $(command -v zsh)
+```
+
 ## Installation
 
 First, check out the dotfiles repo in your $HOME directory using git
