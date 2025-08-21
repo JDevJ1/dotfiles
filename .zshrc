@@ -1,6 +1,7 @@
 # Promt
 if ! command -v oh-my-posh >/dev/null 2>&1; then
     sudo dnf install -y oh-my-posh
+    export PATH=$HOME/.local/bin/oh-my-posh
 fi
 
 # Plugin Manager
