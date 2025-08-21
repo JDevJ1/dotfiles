@@ -1,6 +1,6 @@
 # Promt
 if ! command -v oh-my-posh >/dev/null 2>&1; then
-    sudo dnf install -y oh-my-posh
+    curl -s https://ohmyposh.dev/install.sh | bash -s
     export PATH=$HOME/.local/bin/oh-my-posh
 fi
 
