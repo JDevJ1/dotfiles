@@ -1,3 +1,9 @@
+# Promt
+if ! command -v oh-my-posh >/dev/null 2>&1; then
+    curl -s https://ohmyposh.dev/install.sh | bash -s
+    export PATH=$PATH:/$HOME/.local/bin
+fi
+
 # Plugin Manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
