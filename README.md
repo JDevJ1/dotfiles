@@ -1,6 +1,6 @@
 # My dotfiles
 
-This directory contains the dotfiles for my sytem
+This directory contains the dotfiles for a custom zsh shell
 
 ## Requirements
 
