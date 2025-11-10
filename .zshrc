@@ -64,7 +64,15 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias c='clear'
+alias k='kubectl'
+alias tf='terraform'
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/amro.omp.json)"
+
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/linuxbrew/.linuxbrew/Cellar/terraform/1.13.3/bin/terraform terraform
