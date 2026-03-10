@@ -1,5 +1,5 @@
 # Promt
-export PATH=$PATH:/$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 if ! command -v oh-my-posh >/dev/null 2>&1; then
     curl -s https://ohmyposh.dev/install.sh | bash -s
@@ -66,6 +66,8 @@ alias ls='ls --color'
 alias c='clear'
 alias k='kubectl'
 alias tf='terraform'
+alias x='exit'
+alias repos='cd ~/source/repos'
 
 # Shell integrations
 eval "$(fzf --zsh)"
