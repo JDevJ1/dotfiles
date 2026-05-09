@@ -28,7 +28,7 @@ chsh -s $(command -v zsh)
 
 ### Nerd Fonts
 
-Install a ned font for the shell theme to be displayed correctly
+Install a nerd font for the shell theme to be displayed correctly
 
 ## Installation
 
