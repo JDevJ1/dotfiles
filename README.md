@@ -26,6 +26,10 @@ dnf install zsh
 chsh -s $(command -v zsh)
 ```
 
+### Nerd Fonts
+
+Install a ned font for the shell theme to be displayed correctly
+
 ## Installation
 
 First, check out the dotfiles repo in your $HOME directory using git
