@@ -13,6 +13,9 @@ if [ ! -d "$ZINIT_HOME" ]; then
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
+#Fastfetch
+fastfetch
+
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in zsh plugins
