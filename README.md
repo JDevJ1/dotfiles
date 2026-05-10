@@ -30,6 +30,10 @@ chsh -s $(command -v zsh)
 
 Install a nerd font for the shell theme to be displayed correctly
 
+### Additional tools
+
+Note that this also contains some tools like homebrew or fastfetch that have to be installed afterwards if not present
+
 ## Installation
 
 First, check out the dotfiles repo in your $HOME directory using git
