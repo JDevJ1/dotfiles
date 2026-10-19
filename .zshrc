@@ -44,8 +44,11 @@ zinit light zsh-users/zsh-syntax-highlighting
 
 # Keybindings
 bindkey -e
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^p' up-line-or-beginning-search
+bindkey '^n' down-line-or-beginning-search
 bindkey '^[w' kill-region
 
 # History
