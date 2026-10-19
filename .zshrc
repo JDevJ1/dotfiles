@@ -1,6 +1,6 @@
-# Promt
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.local/bin:$HOME/.dotnet/tools
+# PATH
+typeset -U path
+path+=($HOME/.local/bin $HOME/.dotnet/tools)
 
 if ! command -v oh-my-posh >/dev/null 2>&1; then
     curl -s https://ohmyposh.dev/install.sh | bash -s
@@ -10,26 +10,23 @@ fi
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
+   mkdir -p "$(dirname "$ZINIT_HOME")"
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
 #Fastfetch
-fastfetch
+command -v fastfetch >/dev/null 2>&1 && fastfetch
 
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Add in zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
+# Add in completions (must be in fpath before compinit)
 zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
+zinit snippet OMZP::dnf
 zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
@@ -39,6 +36,11 @@ zinit snippet OMZP::command-not-found
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
+
+# Add in zsh plugins (fzf-tab after compinit, syntax-highlighting last)
+zinit light Aloxaf/fzf-tab
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
 
 # Keybindings
 bindkey -e
@@ -50,13 +52,10 @@ bindkey '^[w' kill-region
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
-HISTDUP=erase
-setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
-setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Completion styling
@@ -74,10 +73,10 @@ alias x='exit'
 alias repos='cd ~/source/repos'
 
 # Shell integrations
-eval "$(fzf --zsh)"
+command -v fzf >/dev/null 2>&1 && eval "$(fzf --zsh)"
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/json.omp.json)"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+[[ -x /home/linuxbrew/.linuxbrew/bin/brew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /home/linuxbrew/.linuxbrew/Cellar/terraform/1.13.3/bin/terraform terraform
+command -v terraform >/dev/null 2>&1 && complete -o nospace -C "$(command -v terraform)" terraform

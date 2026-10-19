@@ -32,7 +32,13 @@ Install a nerd font for the shell theme to be displayed correctly
 
 ### Additional tools
 
-Note that this also contains some tools like homebrew or fastfetch that have to be installed afterwards if not present
+```
+dnf install fzf fastfetch
+```
+
+Optional: [Homebrew](https://brew.sh) and terraform. They are only loaded if they are installed.
+
+[oh-my-posh](https://ohmyposh.dev) and the plugin manager [zinit](https://github.com/zdharma-continuum/zinit) are installed automatically on the first start of zsh (requires `curl` and `git`).
 
 ## Installation
 
